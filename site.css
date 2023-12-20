@@ -21,5 +21,24 @@ body {
 .word {
     position: absolute;
     opacity: 0;
-    transition: opacity 1s;
+    animation: fadeInOut 3s ease-in-out forwards;
+}
+
+#center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Добавляем тень */
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
