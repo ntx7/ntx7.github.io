@@ -1,5 +1,18 @@
 const wordContainer = document.getElementById('word-container');
 
+function addCenterText() {
+    const centerText = document.createElement('div');
+    centerText.id = 'center-text';
+    centerText.textContent = 'я тебя люблю';
+    centerText.style.color = `rgba(255, 255, 255, 1)`;
+    wordContainer.appendChild(centerText);
+
+    // Задержка перед появлением текста "я тебя люблю"
+    setTimeout(() => {
+        centerText.style.opacity = 1;
+    }, 1000); // Пример: задержка 1000 мс (1 секунда)
+}
+
 function createRandomWords() {
     for (let i = 0; i < 50; i++) {
         setTimeout(() => {
@@ -18,15 +31,18 @@ function createRandomWords() {
 
             // Force reflow before adding class for transition
             word.offsetHeight;
+
+            word.style.opacity = 1;
+
+            // Убираем движение текста "прости"
+            setTimeout(() => {
+                word.style.opacity = 0; // Пропадание текста
+                setTimeout(() => {
+                    wordContainer.removeChild(word);
+                }, 500); // Задержка перед удалением
+            }, 1000); // Задержка перед пропаданием текста "прости"
         }, i * 400); // Увеличивающаяся задержка между словами
     }
-}
-
-function addCenterText() {
-    const centerText = document.createElement('div');
-    centerText.id = 'center-text';
-    centerText.textContent = 'я тебя люблю';
-    wordContainer.appendChild(centerText);
 }
 
 function generateWords() {
