@@ -14,7 +14,7 @@ function addCenterText() {
 }
 
 function createRandomWords() {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 5; i++) {
         setTimeout(() => {
             const word = document.createElement('div');
             word.textContent = 'прости';
@@ -34,13 +34,15 @@ function createRandomWords() {
 
             word.style.opacity = 1;
 
-            // Убираем движение текста "прости"
-            setTimeout(() => {
+            // Бесконечное появление и пропадание текста "прости"
+            setInterval(() => {
                 word.style.opacity = 0; // Пропадание текста
                 setTimeout(() => {
-                    wordContainer.removeChild(word);
-                }, 500); // Задержка перед удалением
-            }, 1000); // Задержка перед пропаданием текста "прости"
+                    word.style.left = `${Math.random() * (window.innerWidth - 100)}px`;
+                    word.style.top = `${Math.random() * (window.innerHeight - 30)}px`;
+                    word.style.opacity = 1; // Появление текста
+                }, 1000); // Задержка перед появлением
+            }, 2000); // Задержка между появлением и пропаданием
         }, i * 400); // Увеличивающаяся задержка между словами
     }
 }
