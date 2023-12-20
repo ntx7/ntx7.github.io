@@ -21,7 +21,7 @@ body {
 .word {
     position: absolute;
     opacity: 0;
-    animation: fadeInOut 3s ease-in-out forwards;
+    transition: opacity 1s;
 }
 
 #center-text {
@@ -30,15 +30,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 24px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Добавляем тень */
-}
-
-@keyframes fadeInOut {
-    0%, 100% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Тень */
+    opacity: 0; /* Изначально скрытый */
+    transition: opacity 1s;
 }
